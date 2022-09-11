@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 // instal using @ngrx/core @ngrx/store
 import { StoreModule } from '@ngrx/store';
 import { simpleReducer } from './simple.reducer';
+import { postReducer } from './reducers/post.reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,7 +16,10 @@ import { simpleReducer } from './simple.reducer';
     BrowserModule,
     AppRoutingModule,
     // this is our root state object which handles global state
-    StoreModule.forRoot({ message: simpleReducer }),
+    StoreModule.forRoot({
+      posts: postReducer, // reducer for our posts reducer state Object
+      message: simpleReducer
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
