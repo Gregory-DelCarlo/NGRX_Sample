@@ -8,7 +8,7 @@ import { Action } from '@ngrx/store';
 const STATE = "Hello World";
 
 // give the reducer a default state and define the two types of data sent
-export function simpleReducer(state: string = STATE, action: Action) {
+export function simpleReducer(state: string = STATE, action: Action): string {
   switch(action.type) {
     case 'SPANISH':
       return state = 'Hola Mundo'

@@ -3,19 +3,19 @@
 // in some cases they also have payloads of data to send to the reducer
 // make this using the constructor to define the type of the payload
 
-import { Action } from '@ngrx/store';
+// import { Action } from '@ngrx/store';
 
-export const EDIT_TEXT = '[POST] Edit';
+// export const EDIT_TEXT = '[POST] Edit';
 // export const UPVOTE    = '[POST] Upvote';
 // export const DOWNVOTE  = '[POST] Downvote';
 // export const RESET     = '[POST] Reset';
 
-export class EditText implements Action {
-  readonly type = EDIT_TEXT;
+// export class EditText implements Action {
+//   readonly type = EDIT_TEXT;
 
-  //sends a payload with the action of type string
-  constructor(public payload: string) {}
-}
+//   //sends a payload with the action of type string
+//   constructor(public payload: string) {}
+// }
 
 // export class Upvote implements Action {
 //   readonly type = UPVOTE;
@@ -30,8 +30,12 @@ export class EditText implements Action {
 // }
 
 // export actions as a single type for easy adding when strong-typing
-export type All = EditText
+// export type All = EditText
   // = Upvote
   // | Downvote
   // | Reset
   // | EditText;
+
+import { createAction, props } from "@ngrx/store";
+
+export const editText = createAction('[POST] Edit', props<{post: string}>());

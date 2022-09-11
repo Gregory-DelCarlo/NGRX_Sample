@@ -18,6 +18,7 @@ we need a way to represent and change state using the UI
 */
 interface AppState {
   message: string;
+  post: Post;
 }
 
 @Component({
@@ -50,7 +51,7 @@ export class AppComponent {
 
   // post action dispatchers
   editText() {
-    this.store.dispatch(new PostActions.EditText(this.text))
+    this.store.dispatch(PostActions.editText({post: this.text}))
   }
 
   // resetText() {
