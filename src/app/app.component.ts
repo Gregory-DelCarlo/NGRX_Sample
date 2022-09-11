@@ -3,6 +3,9 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
+import { Post } from './models/post.model';
+import * as PostActions from './actions/post.actions';
+
 /*
 we need a way to represent and change state using the UI
 
@@ -25,10 +28,14 @@ interface AppState {
 export class AppComponent {
   title = 'NGRX_Sample';
 
-  message$: Observable<string>
+  message$: Observable<string>;
+  post$: Observable<Post>;
+
+  text: string = ""; // val for our form input
 
   constructor(private store: Store<AppState>) {
-    this.message$ = this.store.select('message')
+    this.message$ = this.store.select('message');
+    this.post$ = this.store.select('post');
   }
 
   // action creator for spanish
@@ -40,4 +47,21 @@ export class AppComponent {
   frenchMessage() {
     this.store.dispatch({type: 'FRENCH'})
   }
+
+  // post action dispatchers
+  editText() {
+    this.store.dispatch(new PostActions.EditText(this.text))
+  }
+
+  // resetText() {
+  //   this.store.dispatch(new PostActions.Reset())
+  // }
+
+  // upvote() {
+  //   this.store.dispatch(new PostActions.Upvote())
+  // }
+
+  // downvote() {
+  //   this.store.dispatch(new PostActions.Downvote())
+  // }
 }

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 // ngrx brings redux patterns to angular
 // instal using @ngrx/core @ngrx/store
 import { StoreModule } from '@ngrx/store';
+import { FormsModule } from '@angular/forms';
 import { simpleReducer } from './simple.reducer';
 import { postReducer } from './reducers/post.reducer';
 
@@ -15,9 +16,10 @@ import { postReducer } from './reducers/post.reducer';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     // this is our root state object which handles global state
     StoreModule.forRoot({
-      posts: postReducer, // reducer for our posts reducer state Object
+      post: postReducer, // reducer for our posts reducer state Object
       message: simpleReducer
     }),
   ],
