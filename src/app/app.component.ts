@@ -51,18 +51,18 @@ export class AppComponent {
 
   // post action dispatchers
   editText() {
-    this.store.dispatch(PostActions.editText({post: this.text}))
+    this.store.dispatch(PostActions.EditText({post: this.text}))
   }
 
-  // resetText() {
-  //   this.store.dispatch(new PostActions.Reset())
-  // }
+  resetText() {
+    this.store.dispatch(PostActions.Reset())
+  }
 
-  // upvote() {
-  //   this.store.dispatch(new PostActions.Upvote())
-  // }
+  upvote() {
+    this.store.dispatch(PostActions.Upvote())
+  }
 
-  // downvote() {
-  //   this.store.dispatch(new PostActions.Downvote())
-  // }
+  downvote() {
+    this.store.dispatch(PostActions.Downvote())
+  }
 }

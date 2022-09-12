@@ -68,5 +68,8 @@ const defaultState: Post = {
 
 export const postReducer = createReducer(
   defaultState,
-  on(PostActions.editText, (state, { post }) => ({...state, text: post }))
+  on(PostActions.EditText, (state, { post }) => ({...state, text: post })),
+  on(PostActions.Reset, () => (defaultState)),
+  on(PostActions.Upvote, state => ({...state, likes: state.likes + 1})),
+  on(PostActions.Downvote, state => ({...state, likes: state.likes - 1}))
 )
